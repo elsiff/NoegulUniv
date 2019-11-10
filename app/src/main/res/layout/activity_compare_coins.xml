@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".course.comparecoins.CompareCoinsActivity">
+
+    <TextView
+        android:id="@+id/num_solved_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Solved 0, failed 0"
+        android:textSize="25dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/choice_a_grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="columnWidth" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/choice_b_grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="columnWidth" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/choice_a_button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:onClick="onClickChoiceButton"
+                android:text="A" />
+
+            <Button
+                android:id="@+id/choice_b_button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:onClick="onClickChoiceButton"
+                android:text="B" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ProgressBar
+        android:id="@+id/time_limit_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp"
+        android:max="1000"
+        android:layerType="none" />
+
+</LinearLayout>
