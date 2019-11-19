@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".course.CourseResultActivity"></activity>
+        <activity android:name=".dialog.DialogActivity"></activity>
+        <activity android:name=".course.CourseResultActivity" />
         <activity android:name=".course.compareweights.CompareWeightsActivity" />
         <activity android:name=".course.remembercards.RememberCardsActivity" />
         <activity android:name=".course.countblocks.CountBlocksActivity" />

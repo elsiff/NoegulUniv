@@ -12,6 +12,9 @@ import kr.noegul.android.noeguluniv.course.compareweights.CompareWeightsActivity
 import kr.noegul.android.noeguluniv.course.countblocks.CountBlocksActivity;
 import kr.noegul.android.noeguluniv.course.matchthepicture.MatchThePictureActivity;
 import kr.noegul.android.noeguluniv.course.remembercards.RememberCardsActivity;
+import kr.noegul.android.noeguluniv.dialog.DialogActivity;
+import kr.noegul.android.noeguluniv.dialog.Scripts;
+import kr.noegul.android.noeguluniv.player.PlayerData;
 
 public class SelectCourseActivity extends AppCompatActivity {
 
@@ -19,6 +22,18 @@ public class SelectCourseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_course);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
+        if (!playerData.hasPlayedTutorial()) {
+            Intent intent = new Intent(this, DialogActivity.class);
+            intent.putExtra("script-num", Scripts.TUTORIAL);
+            startActivity(intent);
+        }
     }
 
     public void onClickCourseButton(View view) {
