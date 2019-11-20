@@ -28,6 +28,8 @@ public class DialogActivity extends AppCompatActivity {
         this.speakerText = findViewById(R.id.speaker_text);
         this.messageText = findViewById(R.id.message_text);
         this.nextButton = findViewById(R.id.next_button);
+
+        setupLayout(dialog.getCurrentSpeech(), dialog);
     }
 
     public void onClickNextButton(View view) {

@@ -18,6 +18,10 @@ public class Dialog {
         return script.getSpeech(currentIndex);
     }
 
+    public Script.Speech getCurrentSpeech() {
+        return script.getSpeech(currentIndex);
+    }
+
     public boolean hasEnded() {
         return currentIndex >= (script.getNumSpeech() - 1);
     }
