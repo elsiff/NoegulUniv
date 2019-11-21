@@ -64,6 +64,10 @@ public class CountBlocks {
                         !blocks.contains(new Block(block.getX(), block.getY() - 1, block.getZ()))) {
                     block = new Block(block.getX(), block.getY() - 1, block.getZ());
                 }
+                while (block.getZ() > 0 &&
+                        !blocks.contains(new Block(block.getX(), block.getY(), block.getZ() - 1))) {
+                    block = new Block(block.getX(), block.getY(), block.getZ() - 1);
+                }
             } while (blocks.contains(block));
 
             blocks.add(block);
