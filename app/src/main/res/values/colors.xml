@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorGray">#757575</color>
     <color name="colorLightGray">#E0E0E0</color>
+    <color name="scoreTableScheme">#EDF1F3</color>
 </resources>

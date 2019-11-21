@@ -22,8 +22,8 @@ public class CourseResultActivity extends AppCompatActivity {
         CourseResult result = (CourseResult) intent.getSerializableExtra("result");
 
         TextView resultText = findViewById(R.id.result_text);
-        resultText.setText("맞은 개수: " + numSolved + "/25\n" +
-                "틀린 개수: " + numFailed + "/3\n" +
+        resultText.setText("맞은 개수: " + numSolved + "\n" +
+                "틀린 개수: " + numFailed + "\n" +
                 "최종 성적: " + result.getTitle());
     }
 

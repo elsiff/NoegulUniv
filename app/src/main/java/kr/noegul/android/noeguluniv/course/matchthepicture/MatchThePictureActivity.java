@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,6 +24,7 @@ import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
 
 public class MatchThePictureActivity extends AppCompatActivity {
+    private static final Handler handler = new Handler();
     private TextView numSolvedText;
     private MatchPictures game = new MatchPictures();
     private CourseTimeLimit timeLimit;
@@ -29,6 +32,7 @@ public class MatchThePictureActivity extends AppCompatActivity {
     private List<MatchPictures.Picture> pictures;
     private GridView gv;
     List<ImageButton> clickedButtons = new ArrayList<>();
+    private boolean locked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +61,23 @@ public class MatchThePictureActivity extends AppCompatActivity {
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
+        int gradePoint=game.getNumSolved()*100/(game.getNumFailed()+game.getNumSolved());
+        String gradePointAverage;
+        if(gradePoint>=95&&game.getNumSolved()>=25)
+            gradePointAverage="A+";
+        else if(gradePoint>=90&&game.getNumSolved()>=25)
+            gradePointAverage="A";
+        else if(gradePoint>=85&&game.getNumSolved()>=20)
+            gradePointAverage="B+";
+        else if(gradePoint>=80&&game.getNumSolved()>=20)
+            gradePointAverage="B";
+        else if(gradePoint>=75&&game.getNumSolved()>=15)
+            gradePointAverage="C+";
+        else
+            gradePointAverage="F";
+
         CourseResult result;
-        if (game.getNumFailed() <= 3 && game.getNumSolved() >= 25)
+        if (gradePointAverage.equals("A")||gradePointAverage.equals("A+"))
             result = CourseResult.PASS;
         else
             result = CourseResult.NON_PASS;
@@ -100,7 +119,15 @@ public class MatchThePictureActivity extends AppCompatActivity {
         } else {
             game.failCurrentQuiz();
         }
-        setupQuizLayout();
+
+        locked=true;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                locked=false;
+                setupQuizLayout();
+            }
+        }, 300L);
     }
 
     private int imageResourceOf(MatchPictures.Picture picture) {
@@ -162,7 +189,6 @@ public class MatchThePictureActivity extends AppCompatActivity {
             ImageButton imageButton = new ImageButton(context);
             imageButton.setImageResource(imageResourceOf(picture));
             imageButton.setBackgroundResource(R.color.colorLightGray);
-            //imageButton.setMaxWidth(150);
             imageButton.setMaxHeight(150);
             imageButton.setAdjustViewBounds(true);
             imageButton.setPadding(1, 1, 1, 1);
@@ -172,16 +198,20 @@ public class MatchThePictureActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    ImageButton button = (ImageButton) view;
+                    // 안 잠겨져있으면 실행
+                    if(!locked) {
+                        ImageButton button = (ImageButton) view;
 
-                    if (clickedButtons.contains(button)) {
-                        clickedButtons.remove(button);
-                        button.setBackgroundResource(R.color.colorLightGray);
-                    } else {
-                        clickedButtons.add(button);
-                        button.setBackgroundResource(R.color.colorGray);
+                        if (clickedButtons.contains(button)) {
+                            clickedButtons.remove(button);
+                            button.setBackgroundResource(R.color.colorLightGray);
+                        } else {
+                            clickedButtons.add(button);
+                            button.setBackgroundResource(R.color.colorGray);
+                        }
+
+                        if (clickedButtons.size() == 2) makeChoice(clickedButtons);
                     }
-                    if (clickedButtons.size() == 2) makeChoice(clickedButtons);
                 }
             });
             return imageButton;

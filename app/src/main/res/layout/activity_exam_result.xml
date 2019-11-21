@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".exam.ExamResultActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:textSize="40dp"
+        android:text="성적 발표" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:background="#000000"
+        android:padding="0.5dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="학정번호\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="과목명\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="개설학과\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="이수\n구분" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="학점\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/scoreTableScheme"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="성적\n" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="H010-4-9166-57" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="동전 비교" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="뇌굴계산학부" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="전필" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="3" />
+            <TextView
+                android:id="@+id/coin_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="H010-5-7552-25" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="같은 그림 찾기" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="뇌굴지각학부" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="전선" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="3" />
+            <TextView
+                android:id="@+id/picture_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="H010-4-1280-11" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="블록 세기" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="뇌굴분석학부" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="전선" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="3" />
+            <TextView
+                android:id="@+id/block_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="H010-2-4248-61" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="카드 기억" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:text="뇌굴기억학부" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="교선" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="3" />
+            <TextView
+                android:id="@+id/card_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:text="" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="졸업 여부 : "/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickConfirmButton"
+        android:text="★졸업★하기        or        수강화면으로" />
+
+</LinearLayout>
