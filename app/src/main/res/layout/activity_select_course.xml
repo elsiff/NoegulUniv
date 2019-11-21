@@ -4,41 +4,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SelectCourseActivity">
+    tools:context=".SelectCourseActivity"
+    android:gravity="left|center"
+    android:background="#FFCC99">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/compare_coins_course_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCourseButton"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/btncalculate"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:id="@+id/calGrade"
+            android:background="@drawable/npass"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/compare_coins_course_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickCourseButton"
-        android:text="동전 비교" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/match_the_picture_course_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCourseButton"
+            android:background="@drawable/btnperception"
+            android:layout_marginBottom="15dp"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:id="@+id/perGrade"
+            android:background="@drawable/pass"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/match_the_picture_course_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickCourseButton"
-        android:text="같은 그림 찾기" />
 
     <Button
         android:id="@+id/count_blocks_course_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickCourseButton"
-        android:text="블록 세기" />
+        android:background="@drawable/btnanalysis"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"/>
 
     <Button
         android:id="@+id/remember_cards_course_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickCourseButton"
-        android:text="카드 기억" />
+        android:background="@drawable/btnremeber"
+        android:layout_marginLeft="8dp"/>
 
     <Button
         android:id="@+id/compare_weights_course_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickCourseButton"
-        android:text="저울 비교" />
+        android:visibility="invisible"/>
+
+
 
 </LinearLayout>
