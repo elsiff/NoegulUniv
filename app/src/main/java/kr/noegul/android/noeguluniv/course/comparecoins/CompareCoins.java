@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Random;
 
 public class CompareCoins {
-    private static final int[] COIN_VALUES = {10, 50, 100, 500};
     private static final Random random = new Random();
     private Quiz currentQuiz;
     private int numSolved;
@@ -61,7 +60,16 @@ public class CompareCoins {
 
         int numCoins = 2 + (Math.min(numSolved, 18) / 2) + (random.nextInt(3) - 1); // 2~12
         for (int i = 0; i < numCoins; i++) {
-            int coinValue = COIN_VALUES[random.nextInt(COIN_VALUES.length)];
+            int coinValue;
+            double rand = Math.random();
+            if (rand <= 0.1)
+                coinValue = 500;
+            else if (rand <= 0.55)
+                coinValue = 100;
+            else if (rand <= 0.9)
+                coinValue = 50;
+            else
+                coinValue = 10;
             boolean flipped = false;
 
             if (numSolved >= 10 && Math.random() <= 0.3)
