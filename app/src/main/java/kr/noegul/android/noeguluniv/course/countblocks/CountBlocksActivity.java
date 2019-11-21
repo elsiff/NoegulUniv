@@ -1,7 +1,5 @@
 package kr.noegul.android.noeguluniv.course.countblocks;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.HashSet;
 import java.util.Set;
 
 import kr.noegul.android.noeguluniv.R;
-import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
+import kr.noegul.android.noeguluniv.course.ScoreLabel;
 
 public class CountBlocksActivity extends AppCompatActivity {
     private static final Handler handler = new Handler();
@@ -76,12 +76,26 @@ public class CountBlocksActivity extends AppCompatActivity {
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
-        CourseResult result;
-        if (game.getNumFailed() <= 3 && game.getNumSolved() >= 25)
-            result = CourseResult.PASS;
+        ScoreLabel result;
+        if (game.getNumSolved() >= 30 && game.getNumFailed() <= 1)
+            result = ScoreLabel.A_PLUS;
+        else if (game.getNumSolved() >= 26 && game.getNumFailed() <= 2)
+            result = ScoreLabel.A;
+        else if (game.getNumSolved() >= 22 && game.getNumFailed() <= 4)
+            result = ScoreLabel.B_PLUS;
+        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 4)
+            result = ScoreLabel.B;
+        else if (game.getNumSolved() >= 17 && game.getNumFailed() <= 5)
+            result = ScoreLabel.C_PLUS;
+        else if (game.getNumSolved() >= 15 && game.getNumFailed() <= 7)
+            result = ScoreLabel.C;
+        else if (game.getNumSolved() >= 10)
+            result = ScoreLabel.D_PLUS;
+        else if (game.getNumSolved() >= 7)
+            result = ScoreLabel.D;
         else
-            result = CourseResult.NON_PASS;
-        intent.putExtra("result", result);
+            result = ScoreLabel.F;
+        intent.putExtra("result", result.getMinScore());
 
         startActivity(intent);
         finish();

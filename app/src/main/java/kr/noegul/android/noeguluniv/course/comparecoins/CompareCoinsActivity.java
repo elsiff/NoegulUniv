@@ -20,6 +20,7 @@ import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
+import kr.noegul.android.noeguluniv.course.ScoreLabel;
 
 public class CompareCoinsActivity extends AppCompatActivity {
     private CompareCoins game = new CompareCoins();
@@ -57,12 +58,26 @@ public class CompareCoinsActivity extends AppCompatActivity {
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
-        CourseResult result;
-        if (game.getNumFailed() <= 3 && game.getNumSolved() >= 25)
-            result = CourseResult.PASS;
+        ScoreLabel result;
+        if (game.getNumSolved() >= 27 && game.getNumFailed() <= 1)
+            result = ScoreLabel.A_PLUS;
+        else if (game.getNumSolved() >= 23 && game.getNumFailed() <= 2)
+            result = ScoreLabel.A;
+        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 4)
+            result = ScoreLabel.B_PLUS;
+        else if (game.getNumSolved() >= 16 && game.getNumFailed() <= 4)
+            result = ScoreLabel.B;
+        else if (game.getNumSolved() >= 13 && game.getNumFailed() <= 5)
+            result = ScoreLabel.C_PLUS;
+        else if (game.getNumSolved() >= 10 && game.getNumFailed() <= 7)
+            result = ScoreLabel.C;
+        else if (game.getNumSolved() >= 7)
+            result = ScoreLabel.D_PLUS;
+        else if (game.getNumSolved() >= 5)
+            result = ScoreLabel.D;
         else
-            result = CourseResult.NON_PASS;
-        intent.putExtra("result", result);
+            result = ScoreLabel.F;
+        intent.putExtra("result", result.getMinScore());
 
         startActivity(intent);
         finish();

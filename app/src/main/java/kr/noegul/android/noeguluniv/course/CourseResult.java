@@ -13,4 +13,13 @@ public enum CourseResult {
     public String getTitle() {
         return title;
     }
+
+    public static CourseResult fromScore(double score) {
+        CourseResult result;
+        if (score >= ScoreLabel.C.getMinScore())
+            result = PASS;
+        else
+            result = NON_PASS;
+        return result;
+    }
 }
