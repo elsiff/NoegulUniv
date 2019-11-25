@@ -67,6 +67,13 @@ public class SelectCourseActivity extends AppCompatActivity {
             rememberCardsCourseGrade.setImageResource(R.drawable.pass);
         else
             rememberCardsCourseGrade.setImageResource(R.drawable.npass);
+
+        if (playerData.getResult(Course.COMPARE_COINS) == CourseResult.PASS &&
+                playerData.getResult(Course.MATCH_THE_PICTURE) == CourseResult.PASS &&
+                playerData.getResult(Course.COUNT_BLOCKS) == CourseResult.PASS &&
+                playerData.getResult(Course.REMEMBER_CARDS) == CourseResult.PASS) {
+            findViewById(R.id.graduate_exam_button).setVisibility(View.VISIBLE);
+        }
     }
 
     public void onClickCourseButton(View view) {
