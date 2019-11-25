@@ -3,102 +3,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SelectCourseActivity"
+    android:background="#FFCC99"
     android:gravity="left|center"
-    android:background="#FFCC99">
-    <!--android:background="#FFCC99"-->
+    android:orientation="vertical"
+    tools:context=".SelectCourseActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="        수강 중인 강의"
         android:layout_gravity="center"
-        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:text="        수강 중인 강의"
         android:textSize="40dp"
-        android:layout_marginBottom="20dp"></TextView>
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/compare_coins_course_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickCourseButton"
-            android:layout_marginBottom="15dp"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/btncalculate"/>
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/btncalculate"
+            android:onClick="onClickCourseButton" />
+
         <ImageView
+            android:id="@+id/compare_coins_course_grade"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:id="@+id/calGrade"
-            android:background="@drawable/npass"
-            android:layout_gravity="center">
-        </ImageView>
+            android:layout_gravity="center"
+            android:src="@drawable/npass" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/match_the_picture_course_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickCourseButton"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/btnperception"
-            android:layout_marginBottom="15dp"/>
+            android:onClick="onClickCourseButton" />
+
         <ImageView
+            android:id="@+id/match_the_picture_course_grade"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:id="@+id/perGrade"
-            android:background="@drawable/pass"
-            android:layout_gravity="center">
-        </ImageView>
+            android:layout_gravity="center"
+            android:src="@drawable/pass" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/count_blocks_course_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickCourseButton"
-        android:background="@drawable/btnanalysis"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="5dp"/>
+
+        <Button
+            android:id="@+id/count_blocks_course_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/btnanalysis"
+            android:onClick="onClickCourseButton" />
+
         <ImageView
+            android:id="@+id/count_blocks_course_grade"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:id="@+id/calAnal"
-            android:background="@drawable/npass"
-            android:layout_gravity="center">
-        </ImageView>
+            android:layout_gravity="center"
+            android:src="@drawable/npass" />
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/remember_cards_course_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickCourseButton"
-        android:background="@drawable/btnremeber"
-        android:layout_marginLeft="8dp"/>
+
+        <Button
+            android:id="@+id/remember_cards_course_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/btnremeber"
+            android:onClick="onClickCourseButton" />
+
         <ImageView
+            android:id="@+id/remember_cards_course_grade"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:id="@+id/calRem"
-            android:background="@drawable/pass"
-            android:layout_gravity="center">
-        </ImageView>
+            android:layout_gravity="center"
+            android:src="@drawable/npass" />
+
     </LinearLayout>
+
     <Button
-        android:id="@+id/compare_weights_course_button"
+        android:id="@+id/graduate_exam_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:onClick="onClickCourseButton"
-        android:visibility="invisible"/>
-
+        android:text="졸업 시험 응시"
+        android:textSize="25dp"
+        android:visibility="invisible" />
 
 
 </LinearLayout>
