@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import kr.noegul.android.noeguluniv.R;
+import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
@@ -96,15 +97,12 @@ public class RememberCardsActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(RememberCardsActivity.this, CourseResultActivity.class);
 
+        intent.putExtra("course", Course.REMEMBER_CARDS.name());
+
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
-        CourseResult result;
-        if (game.getNumFailed() <= 3 && game.getNumSolved() >= 25)
-            result = CourseResult.PASS;
-        else
-            result = CourseResult.NON_PASS;
-        intent.putExtra("result", result);
+        intent.putExtra("result", 4.5); //TODO 평점 계산하는 코드 필요
 
         startActivity(intent);
         finish();

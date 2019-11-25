@@ -17,6 +17,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import kr.noegul.android.noeguluniv.R;
+import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
@@ -55,6 +56,7 @@ public class CompareCoinsActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(CompareCoinsActivity.this, CourseResultActivity.class);
 
+        intent.putExtra("course", Course.COMPARE_COINS.name());
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 

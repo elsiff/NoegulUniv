@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import kr.noegul.android.noeguluniv.R;
+import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
 import kr.noegul.android.noeguluniv.course.ScoreLabel;
@@ -72,6 +73,8 @@ public class CountBlocksActivity extends AppCompatActivity {
     private void finishWithResultActivity() {
         Intent intent = new Intent();
         intent.setClass(this, CourseResultActivity.class);
+
+        intent.putExtra("course", Course.COUNT_BLOCKS.name());
 
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());

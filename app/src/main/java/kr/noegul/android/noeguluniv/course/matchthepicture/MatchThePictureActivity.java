@@ -18,9 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.noegul.android.noeguluniv.R;
+import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
+import kr.noegul.android.noeguluniv.course.ScoreLabel;
 
 public class MatchThePictureActivity extends AppCompatActivity {
     private static final Handler handler = new Handler();
@@ -57,30 +59,33 @@ public class MatchThePictureActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(MatchThePictureActivity.this, CourseResultActivity.class);
 
+        intent.putExtra("course", Course.MATCH_THE_PICTURE.name());
+
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
         int gradePoint=game.getNumSolved()*100/(game.getNumFailed()+game.getNumSolved());
-        String gradePointAverage;
+        ScoreLabel score;
         if(gradePoint>=95&&game.getNumSolved()>=25)
-            gradePointAverage="A+";
+            score=ScoreLabel.A_PLUS;
         else if(gradePoint>=90&&game.getNumSolved()>=25)
-            gradePointAverage="A";
+            score=ScoreLabel.A;
         else if(gradePoint>=85&&game.getNumSolved()>=20)
-            gradePointAverage="B+";
+            score=ScoreLabel.B_PLUS;
         else if(gradePoint>=80&&game.getNumSolved()>=20)
-            gradePointAverage="B";
+            score=ScoreLabel.B;
         else if(gradePoint>=75&&game.getNumSolved()>=15)
-            gradePointAverage="C+";
+            score=ScoreLabel.C_PLUS;
+        else if(gradePoint>=70&&game.getNumSolved()>=25)
+            score=ScoreLabel.C;
+        else if(gradePoint>=65)
+            score=ScoreLabel.D_PLUS;
+        else if(gradePoint>=60)
+            score=ScoreLabel.D;
         else
-            gradePointAverage="F";
+            score=ScoreLabel.F;
 
-        CourseResult result;
-        if (gradePointAverage.equals("A")||gradePointAverage.equals("A+"))
-            result = CourseResult.PASS;
-        else
-            result = CourseResult.NON_PASS;
-        intent.putExtra("result", result);
+        intent.putExtra("result", score.getMinScore());
 
         startActivity(intent);
         finish();

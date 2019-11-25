@@ -12,6 +12,7 @@ import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.dialog.DialogActivity;
 import kr.noegul.android.noeguluniv.dialog.Scripts;
 import kr.noegul.android.noeguluniv.exam.GraduateExam;
+import kr.noegul.android.noeguluniv.player.PlayerData;
 
 public class CourseResultActivity extends AppCompatActivity {
     private double score;
@@ -25,6 +26,13 @@ public class CourseResultActivity extends AppCompatActivity {
         int numSolved = intent.getIntExtra("num-solved", 0);
         int numFailed = intent.getIntExtra("num-failed", 0);
         this.score = intent.getDoubleExtra("result", 0);
+        Course course = Course.valueOf(intent.getStringExtra("course"));
+
+        PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
+        if (playerData.getResult(course) == CourseResult.NON_PASS &&
+                score >= ScoreLabel.C.getMinScore()) {
+            playerData.setResult(course, CourseResult.PASS);
+        }
 
         TextView resultText = findViewById(R.id.result_text);
         resultText.setText("맞은 개수: " + numSolved + "\n" +
