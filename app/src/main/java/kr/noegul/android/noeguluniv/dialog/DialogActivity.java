@@ -34,7 +34,7 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onClickNextButton(View view) {
         if (dialog.hasEnded()) {
-            dialog.getScript().getDialogEndHandler().run();
+            dialog.getScript().getOnDialogEndListener().onDialogEnd(this);
             finish();
         } else {
             Script.Speech speech = dialog.nextSpeech();
@@ -44,7 +44,7 @@ public class DialogActivity extends AppCompatActivity {
 
     private void setupLayout(Script.Speech speech, Dialog dialog) {
         if (dialog.hasEnded()) {
-            nextButton.setText("마침");
+            nextButton.setText("확인");
         } else {
             nextButton.setText("다음");
         }

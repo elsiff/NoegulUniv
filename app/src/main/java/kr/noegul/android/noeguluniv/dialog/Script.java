@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Script {
     private final List<Speech> speeches;
-    private final Runnable dialogEndHandler;
+    private final OnDialogEndListener onDialogEndListener;
 
-    public Script(List<Speech> speeches, Runnable dialogEndHandler) {
+    public Script(List<Speech> speeches, OnDialogEndListener dialogEndListener) {
         this.speeches = speeches;
-        this.dialogEndHandler = dialogEndHandler;
+        this.onDialogEndListener = dialogEndListener;
     }
 
     public Speech getSpeech(int index) {
@@ -20,8 +20,8 @@ public class Script {
         return speeches.size();
     }
 
-    public Runnable getDialogEndHandler() {
-        return dialogEndHandler;
+    public OnDialogEndListener getOnDialogEndListener() {
+        return onDialogEndListener;
     }
 
     public static class Speech {
@@ -44,7 +44,7 @@ public class Script {
 
     public static class Builder {
         private List<Speech> speeches = new ArrayList<>();
-        private Runnable dialogEndHandler;
+        private OnDialogEndListener dialogEndListener;
 
         public Builder putSpeech(Speech speech) {
             speeches.add(speech);
@@ -55,13 +55,13 @@ public class Script {
             return putSpeech(new Speech(speaker, message));
         }
 
-        public Builder setOnDialogEndHandler(Runnable dialogEndHandler) {
-            this.dialogEndHandler = dialogEndHandler;
+        public Builder setOnDialogEndListener(OnDialogEndListener dialogEndListener) {
+            this.dialogEndListener = dialogEndListener;
             return this;
         }
 
         public Script build() {
-            return new Script(speeches, dialogEndHandler);
+            return new Script(speeches, dialogEndListener);
         }
     }
 }

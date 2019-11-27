@@ -11,6 +11,7 @@ import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.dialog.DialogActivity;
 import kr.noegul.android.noeguluniv.dialog.Scripts;
+import kr.noegul.android.noeguluniv.exam.ExamResultActivity;
 import kr.noegul.android.noeguluniv.exam.GraduateExam;
 import kr.noegul.android.noeguluniv.player.PlayerData;
 
@@ -48,7 +49,13 @@ public class CourseResultActivity extends AppCompatActivity {
             exam.putRecord(exam.getCurrentCourse(), score);
 
             if (exam.isLastCourse()) {
-                //TODO Start graduate exam result activity
+                Intent intent = new Intent(this, ExamResultActivity.class);
+                intent.putExtra("compare-coins-score", exam.getScore(Course.COMPARE_COINS));
+                intent.putExtra("match-the-picture-score", exam.getScore(Course.MATCH_THE_PICTURE));
+                intent.putExtra("count-blocks-score", exam.getScore(Course.COUNT_BLOCKS));
+                intent.putExtra("remember-cards-score", exam.getScore(Course.REMEMBER_CARDS));
+                startActivity(intent);
+                game.stopGraduateExam();
             } else {
                 Course course = exam.nextCourse();
                 startCourseActivity(course);
@@ -80,5 +87,15 @@ public class CourseResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DialogActivity.class);
         intent.putExtra("script-num", scriptNum);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        NeogulUnivApp game = NeogulUnivApp.getInstance();
+        if (game.hasOngoingExam()) {
+            game.stopGraduateExam();
+        }
     }
 }

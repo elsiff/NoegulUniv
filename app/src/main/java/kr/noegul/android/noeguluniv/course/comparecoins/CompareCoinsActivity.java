@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.EnumMap;
 import java.util.Map;
 
+import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
@@ -91,6 +92,16 @@ public class CompareCoinsActivity extends AppCompatActivity {
 
         if (timeLimit.hasStarted()) {
             timeLimit.stop();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        NeogulUnivApp game = NeogulUnivApp.getInstance();
+        if (game.hasOngoingExam()) {
+            game.stopGraduateExam();
         }
     }
 

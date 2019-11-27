@@ -106,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="onClickCourseButton"
+        android:onClick="onClickGraduateExamButton"
         android:text="졸업 시험 응시"
         android:textSize="25dp"
         android:visibility="invisible" />

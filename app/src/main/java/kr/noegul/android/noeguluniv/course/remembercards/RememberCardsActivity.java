@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
@@ -90,6 +91,16 @@ public class RememberCardsActivity extends AppCompatActivity {
 
         setQuizLayout();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        NeogulUnivApp game = NeogulUnivApp.getInstance();
+        if (game.hasOngoingExam()) {
+            game.stopGraduateExam();
+        }
     }
 
 

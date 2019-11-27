@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".exam.ExamResultActivity"></activity>
         <activity android:name=".dialog.DialogActivity" />
         <activity android:name=".course.CourseResultActivity" />
         <activity android:name=".course.compareweights.CompareWeightsActivity" />
