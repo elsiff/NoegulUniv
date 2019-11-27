@@ -7,6 +7,15 @@
     tools:context=".SelectCourseActivity"
     android:gravity="left|center"
     android:background="#FFCC99">
+    <!--android:background="#FFCC99"-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="        수강 중인 강의"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_marginBottom="20dp"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -46,7 +55,9 @@
         </ImageView>
     </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:id="@+id/count_blocks_course_button"
         android:layout_width="wrap_content"
@@ -55,7 +66,17 @@
         android:background="@drawable/btnanalysis"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="5dp"/>
-
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:id="@+id/calAnal"
+            android:background="@drawable/npass"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:id="@+id/remember_cards_course_button"
         android:layout_width="wrap_content"
@@ -63,7 +84,14 @@
         android:onClick="onClickCourseButton"
         android:background="@drawable/btnremeber"
         android:layout_marginLeft="8dp"/>
-
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:id="@+id/calRem"
+            android:background="@drawable/pass"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
     <Button
         android:id="@+id/compare_weights_course_button"
         android:layout_width="wrap_content"

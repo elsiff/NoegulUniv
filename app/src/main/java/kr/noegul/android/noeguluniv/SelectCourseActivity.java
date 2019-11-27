@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -60,6 +61,17 @@ public class SelectCourseActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
+        startActivityForResult(intent,1);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if(requestCode==1){
+            if(resultCode==-1){
+                Toast.makeText(this.getApplicationContext(),"22",Toast.LENGTH_SHORT).show();
+                String Course=data.getStringExtra("course");
+                String Result=data.getStringExtra("result");
+                Toast.makeText(this.getApplicationContext(),Course+" "+Result,Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

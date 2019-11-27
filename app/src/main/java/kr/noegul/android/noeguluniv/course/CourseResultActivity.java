@@ -10,16 +10,17 @@ import android.widget.TextView;
 import kr.noegul.android.noeguluniv.R;
 
 public class CourseResultActivity extends AppCompatActivity {
-
+    private Intent intent;
+    private CourseResult result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_result);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         int numSolved = intent.getIntExtra("num-solved", 0);
         int numFailed = intent.getIntExtra("num-failed", 0);
-        CourseResult result = (CourseResult) intent.getSerializableExtra("result");
+        result = (CourseResult) intent.getSerializableExtra("result");
 
         TextView resultText = findViewById(R.id.result_text);
         resultText.setText("맞은 개수: " + numSolved + "\n" +
@@ -28,6 +29,10 @@ public class CourseResultActivity extends AppCompatActivity {
     }
 
     public void onClickConfirmButton(View view) {
-        this.finish();
+        intent =new Intent();
+        intent.putExtra("course","4");
+        intent.putExtra("result",result);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 }

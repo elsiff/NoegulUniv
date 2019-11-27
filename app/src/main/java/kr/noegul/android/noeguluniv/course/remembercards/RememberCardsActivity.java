@@ -170,7 +170,7 @@ public class RememberCardsActivity extends AppCompatActivity {
                   if(visited[j][k]==false&&selected[j][k]==true) {
                        //정답인 경우
                         if(idx==ans){
-                            int fnumber=random.nextInt(9);
+                            int fnumber=random.nextInt(8);
                             vFruit=fnumber;
                             String id = "fruit_" + String.valueOf(fnumber);
                             int ID = getResources().getIdentifier(id, "drawable", getPackageName());
@@ -242,4 +242,5 @@ public class RememberCardsActivity extends AppCompatActivity {
         }
         setQuizLayout();
     }
+
 }
