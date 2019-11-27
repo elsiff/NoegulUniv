@@ -1,8 +1,8 @@
 package kr.noegul.android.noeguluniv.course.compareweights;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import kr.noegul.android.noeguluniv.R;
 

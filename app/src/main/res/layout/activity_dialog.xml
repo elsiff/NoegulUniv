@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/speaker_text"
             android:textSize="20dp"
-            android:text="안녕"/>
+            android:text="안녕" />
 
         <Button
             android:id="@+id/next_button"

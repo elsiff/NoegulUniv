@@ -1,12 +1,12 @@
 package kr.noegul.android.noeguluniv.exam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.ScoreLabel;

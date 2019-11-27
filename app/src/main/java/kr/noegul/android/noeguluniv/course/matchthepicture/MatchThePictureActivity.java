@@ -20,7 +20,6 @@ import java.util.List;
 import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.Course;
-import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
 import kr.noegul.android.noeguluniv.course.ScoreLabel;
@@ -65,26 +64,26 @@ public class MatchThePictureActivity extends AppCompatActivity {
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
-        int gradePoint=game.getNumSolved()*100/(game.getNumFailed()+game.getNumSolved());
+        int gradePoint = game.getNumSolved() * 100 / (game.getNumFailed() + game.getNumSolved());
         ScoreLabel score;
-        if(gradePoint>=95&&game.getNumSolved()>=25)
-            score=ScoreLabel.A_PLUS;
-        else if(gradePoint>=90&&game.getNumSolved()>=25)
-            score=ScoreLabel.A;
-        else if(gradePoint>=85&&game.getNumSolved()>=20)
-            score=ScoreLabel.B_PLUS;
-        else if(gradePoint>=80&&game.getNumSolved()>=20)
-            score=ScoreLabel.B;
-        else if(gradePoint>=75&&game.getNumSolved()>=15)
-            score=ScoreLabel.C_PLUS;
-        else if(gradePoint>=70&&game.getNumSolved()>=25)
-            score=ScoreLabel.C;
-        else if(gradePoint>=65)
-            score=ScoreLabel.D_PLUS;
-        else if(gradePoint>=60)
-            score=ScoreLabel.D;
+        if (gradePoint >= 95 && game.getNumSolved() >= 25)
+            score = ScoreLabel.A_PLUS;
+        else if (gradePoint >= 90 && game.getNumSolved() >= 25)
+            score = ScoreLabel.A;
+        else if (gradePoint >= 85 && game.getNumSolved() >= 20)
+            score = ScoreLabel.B_PLUS;
+        else if (gradePoint >= 80 && game.getNumSolved() >= 20)
+            score = ScoreLabel.B;
+        else if (gradePoint >= 75 && game.getNumSolved() >= 15)
+            score = ScoreLabel.C_PLUS;
+        else if (gradePoint >= 70 && game.getNumSolved() >= 25)
+            score = ScoreLabel.C;
+        else if (gradePoint >= 65)
+            score = ScoreLabel.D_PLUS;
+        else if (gradePoint >= 60)
+            score = ScoreLabel.D;
         else
-            score=ScoreLabel.F;
+            score = ScoreLabel.F;
 
         intent.putExtra("result", score.getMinScore());
 
@@ -135,11 +134,11 @@ public class MatchThePictureActivity extends AppCompatActivity {
             game.failCurrentQuiz();
         }
 
-        locked=true;
+        locked = true;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                locked=false;
+                locked = false;
                 setupQuizLayout();
             }
         }, 300L);
@@ -216,7 +215,7 @@ public class MatchThePictureActivity extends AppCompatActivity {
                 public void onClick(View view) {
 
                     // 안 잠겨져있으면 실행
-                    if(!locked) {
+                    if (!locked) {
                         ImageButton button = (ImageButton) view;
 
                         if (clickedButtons.contains(button)) {

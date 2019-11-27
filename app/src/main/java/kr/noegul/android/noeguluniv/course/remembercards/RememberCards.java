@@ -24,16 +24,22 @@ public class RememberCards {
     }
 
 
-    public int getCardNum(){
+    public int getCardNum() {
         return cardNum;
     }
-    public void setCardNum(int cd){
-        cardNum=cd;
+
+    public void setCardNum(int cd) {
+        cardNum = cd;
     }
-    public void setAnsResource(int res){
-        ansResource=res;
+
+    public void setAnsResource(int res) {
+        ansResource = res;
     }
-    public int getAnsResource(){return ansResource;}
+
+    public int getAnsResource() {
+        return ansResource;
+    }
+
     public void solveCurrentQuiz() {
         numSolved++;
     }
@@ -41,6 +47,7 @@ public class RememberCards {
     public void failCurrentQuiz() {
         numFailed++;
     }
+
     public int getNumSolved() {
         return numSolved;
     }

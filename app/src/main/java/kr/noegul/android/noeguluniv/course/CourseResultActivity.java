@@ -1,11 +1,11 @@
 package kr.noegul.android.noeguluniv.course;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
@@ -38,7 +38,7 @@ public class CourseResultActivity extends AppCompatActivity {
         TextView resultText = findViewById(R.id.result_text);
         resultText.setText("맞은 개수: " + numSolved + "\n" +
                 "틀린 개수: " + numFailed + "\n" +
-                "최종 성적: " + String.format("%.1f", score) +" (" + ScoreLabel.of(score).getText()
+                "최종 성적: " + String.format("%.1f", score) + " (" + ScoreLabel.of(score).getText()
                 + ", " + CourseResult.fromScore(score).getTitle() + ")");
     }
 

@@ -37,10 +37,9 @@ public class SharedPrefPlayerData implements PlayerData {
             throw new IllegalArgumentException("Score out of range");
 
         pref.edit()
-                .putFloat("graduate-exam-score", (float)score)
+                .putFloat("graduate-exam-score", (float) score)
                 .apply();
     }
-
 
     @Override
     public boolean hasPlayedTutorial() {

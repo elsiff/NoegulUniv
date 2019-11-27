@@ -19,7 +19,6 @@ import java.util.Map;
 import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.Course;
-import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
 import kr.noegul.android.noeguluniv.course.ScoreLabel;
