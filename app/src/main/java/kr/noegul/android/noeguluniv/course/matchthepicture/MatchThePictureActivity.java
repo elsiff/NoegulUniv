@@ -204,7 +204,7 @@ public class MatchThePictureActivity extends AppCompatActivity {
 
             ImageButton imageButton = new ImageButton(context);
             imageButton.setImageResource(imageResourceOf(picture));
-            imageButton.setBackgroundResource(R.color.colorAccent); //LightGray
+            imageButton.setBackgroundResource(R.color.colorLightGray);
             imageButton.setMaxHeight(150);
             imageButton.setAdjustViewBounds(true);
             imageButton.setPadding(1, 1, 1, 1);
@@ -221,10 +221,10 @@ public class MatchThePictureActivity extends AppCompatActivity {
                         if (clickedButtons.contains(button)) {
                             clickedButtons.remove(button);
 
-                            button.setBackgroundResource(R.color.colorAccent);//Light Gray
+                            button.setBackgroundResource(R.color.colorLightGray);
                         } else {
                             clickedButtons.add(button);
-                            button.setBackgroundResource(R.color.colorPrimary);//Gray
+                            button.setBackgroundResource(R.color.colorGray);
                         }
 
                         if (clickedButtons.size() == 2) makeChoice(clickedButtons);
