@@ -6,14 +6,24 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".dialog.DialogActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="245dp"
+            android:layout_height="243dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="125dp"
+            android:src="@drawable/board" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/professor"
         android:maxWidth="125dp"
         android:adjustViewBounds="true" />
-
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"

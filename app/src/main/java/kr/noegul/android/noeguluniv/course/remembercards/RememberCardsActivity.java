@@ -27,6 +27,7 @@ import kr.noegul.android.noeguluniv.course.Course;
 import kr.noegul.android.noeguluniv.course.CourseResult;
 import kr.noegul.android.noeguluniv.course.CourseResultActivity;
 import kr.noegul.android.noeguluniv.course.CourseTimeLimit;
+import kr.noegul.android.noeguluniv.course.ScoreLabel;
 import kr.noegul.android.noeguluniv.course.comparecoins.CompareCoins;
 import kr.noegul.android.noeguluniv.course.comparecoins.CompareCoinsActivity;
 
@@ -113,7 +114,28 @@ public class RememberCardsActivity extends AppCompatActivity {
         intent.putExtra("num-solved", game.getNumSolved());
         intent.putExtra("num-failed", game.getNumFailed());
 
-        intent.putExtra("result", 4.5); //TODO 평점 계산하는 코드 필요
+        int gradePoint = game.getNumSolved() * 100 / (game.getNumFailed() + game.getNumSolved());
+        ScoreLabel score;
+        if (gradePoint >= 95 && game.getNumSolved() >= 27)
+            score = ScoreLabel.A_PLUS;
+        else if (gradePoint >= 90 && game.getNumSolved() >=22 )
+            score = ScoreLabel.A;
+        else if (gradePoint >= 85 && game.getNumSolved() >= 17)
+            score = ScoreLabel.B_PLUS;
+        else if (gradePoint >= 80 && game.getNumSolved() >= 12)
+            score = ScoreLabel.B;
+        else if (gradePoint >= 75 && game.getNumSolved() >= 10)
+            score = ScoreLabel.C_PLUS;
+        else if (gradePoint >= 70 && game.getNumSolved() >= 10)
+            score = ScoreLabel.C;
+        else if (gradePoint >= 65)
+            score = ScoreLabel.D_PLUS;
+        else if (gradePoint >= 60)
+            score = ScoreLabel.D;
+        else
+            score = ScoreLabel.F;
+
+        intent.putExtra("result", score.getMinScore());
 
         startActivity(intent);
         finish();
@@ -243,7 +265,6 @@ public class RememberCardsActivity extends AppCompatActivity {
                 cards[i][j].setVisibility(View.INVISIBLE);
                 visited[i][j]=false;
                 selected[i][j]=false;
-
             }
         }
         for(int i=0;i<4;i++){
