@@ -61,17 +61,17 @@ public class CompareCoinsActivity extends AppCompatActivity {
         intent.putExtra("num-failed", game.getNumFailed());
 
         ScoreLabel result;
-        if (game.getNumSolved() >= 27 && game.getNumFailed() <= 1)
+        if (game.getNumSolved() >= 27 && game.getNumFailed() <= 2)
             result = ScoreLabel.A_PLUS;
-        else if (game.getNumSolved() >= 23 && game.getNumFailed() <= 2)
+        else if (game.getNumSolved() >= 23 && game.getNumFailed() <= 4)
             result = ScoreLabel.A;
-        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 4)
+        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 7)
             result = ScoreLabel.B_PLUS;
-        else if (game.getNumSolved() >= 16 && game.getNumFailed() <= 4)
+        else if (game.getNumSolved() >= 16 && game.getNumFailed() <= 10)
             result = ScoreLabel.B;
-        else if (game.getNumSolved() >= 13 && game.getNumFailed() <= 5)
+        else if (game.getNumSolved() >= 13 && game.getNumFailed() <= 12)
             result = ScoreLabel.C_PLUS;
-        else if (game.getNumSolved() >= 10 && game.getNumFailed() <= 7)
+        else if (game.getNumSolved() >= 10 && game.getNumFailed() <= 15)
             result = ScoreLabel.C;
         else if (game.getNumSolved() >= 7)
             result = ScoreLabel.D_PLUS;
