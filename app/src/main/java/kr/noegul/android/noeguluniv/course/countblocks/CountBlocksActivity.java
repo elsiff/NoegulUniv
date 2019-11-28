@@ -97,11 +97,11 @@ public class CountBlocksActivity extends AppCompatActivity {
             result = ScoreLabel.A;
         else if (game.getNumSolved() >= 22 && game.getNumFailed() <= 4)
             result = ScoreLabel.B_PLUS;
-        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 4)
+        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 5)
             result = ScoreLabel.B;
-        else if (game.getNumSolved() >= 17 && game.getNumFailed() <= 5)
+        else if (game.getNumSolved() >= 17 && game.getNumFailed() <= 7)
             result = ScoreLabel.C_PLUS;
-        else if (game.getNumSolved() >= 15 && game.getNumFailed() <= 7)
+        else if (game.getNumSolved() >= 15 && game.getNumFailed() <= 10)
             result = ScoreLabel.C;
         else if (game.getNumSolved() >= 10)
             result = ScoreLabel.D_PLUS;
