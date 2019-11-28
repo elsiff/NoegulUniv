@@ -170,7 +170,7 @@ public class RememberCardsActivity extends AppCompatActivity {
                   if(visited[j][k]==false&&selected[j][k]==true) {
                        //정답인 경우
                         if(idx==ans){
-                            int fnumber=random.nextInt(8);
+                            int fnumber=random.nextInt(12);
                             vFruit=fnumber;
                             String id = "fruit_" + String.valueOf(fnumber);
                             int ID = getResources().getIdentifier(id, "drawable", getPackageName());
@@ -186,7 +186,7 @@ public class RememberCardsActivity extends AppCompatActivity {
                         }
                         //정답 아닌 경우
                         else{
-                            String id = "fruit_" + String.valueOf(random.nextInt(8));
+                            String id = "fruit_" + String.valueOf(random.nextInt(12));
                             int ID = getResources().getIdentifier(id, "drawable", getPackageName());
                             cards[j][k].setVisibility(View.VISIBLE);
                             cards[j][k].setImageResource(ID);
@@ -202,9 +202,9 @@ public class RememberCardsActivity extends AppCompatActivity {
         for(int i=0;i<4;i++){
             if(i!=resultAns)
             {
-                int chFruit=random.nextInt(8);
+                int chFruit=random.nextInt(12);
                 while(chFruit==vFruit){
-                    chFruit=random.nextInt(8);
+                    chFruit=random.nextInt(12);
                 }
                 String id = "fruit_" + String.valueOf(chFruit);
                 int ID = getResources().getIdentifier(id, "drawable", getPackageName());

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MatchPictures {
-    private static final String[] PICTURES = {"apple", "banana","cherry","orange","peach","strawberry","watermelon","grape","kiwi","lemon"};
+    private static final String[] PICTURES = {"apple", "banana","cherry","orange","peach","strawberry","watermelon","grape","kiwi","lemon","orientallemon"};
     private static final Random random = new Random();
     private Quiz currentQuiz;
     private int numSolved;

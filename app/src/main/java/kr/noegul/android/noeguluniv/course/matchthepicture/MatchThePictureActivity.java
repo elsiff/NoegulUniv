@@ -133,25 +133,27 @@ public class MatchThePictureActivity extends AppCompatActivity {
     private int imageResourceOf(MatchPictures.Picture picture) {
         switch (picture.getValue()) {
             case "apple":
-                return R.drawable.apple;
+                return R.drawable.fruit_0;
             case "banana":
-                return R.drawable.banana;
+                return R.drawable.fruit_1;
             case "cherry":
-                return R.drawable.cherry;
+                return R.drawable.fruit_7;
             case "orange":
-                return R.drawable.orange;
+                return R.drawable.fruit_2;
             case "peach":
-                return R.drawable.peach;
+                return R.drawable.fruit_4;
             case "strawberry":
-                return R.drawable.strawberry;
+                return R.drawable.fruit_5;
             case "watermelon":
-                return R.drawable.watermelon;
+                return R.drawable.fruit_6;
             case "grape":
-                return R.drawable.grape;
+                return R.drawable.fruit_8;
             case "kiwi":
-                return R.drawable.kiwi;
+                return R.drawable.fruit_9;
             case "lemon":
-                return R.drawable.lemon;
+                return R.drawable.fruit_10;
+            case "orientallemon":
+                return R.drawable.fruit_11;
             default:
                 throw new IllegalStateException("Invalid picture");
         }
@@ -188,7 +190,7 @@ public class MatchThePictureActivity extends AppCompatActivity {
 
             ImageButton imageButton = new ImageButton(context);
             imageButton.setImageResource(imageResourceOf(picture));
-            imageButton.setBackgroundResource(R.color.colorLightGray);
+            imageButton.setBackgroundResource(R.color.colorAccent); //LightGray
             imageButton.setMaxHeight(150);
             imageButton.setAdjustViewBounds(true);
             imageButton.setPadding(1, 1, 1, 1);
@@ -204,10 +206,11 @@ public class MatchThePictureActivity extends AppCompatActivity {
 
                         if (clickedButtons.contains(button)) {
                             clickedButtons.remove(button);
-                            button.setBackgroundResource(R.color.colorLightGray);
+
+                            button.setBackgroundResource(R.color.colorAccent);//Light Gray
                         } else {
                             clickedButtons.add(button);
-                            button.setBackgroundResource(R.color.colorGray);
+                            button.setBackgroundResource(R.color.colorPrimary);//Gray
                         }
 
                         if (clickedButtons.size() == 2) makeChoice(clickedButtons);
