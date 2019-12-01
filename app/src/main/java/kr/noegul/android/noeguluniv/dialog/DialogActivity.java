@@ -32,6 +32,11 @@ public class DialogActivity extends AppCompatActivity {
         setupLayout(dialog.getCurrentSpeech(), dialog);
     }
 
+    @Override
+    public void onBackPressed() {
+        // Do nothing
+    }
+
     public void onClickNextButton(View view) {
         if (dialog.hasEnded()) {
             dialog.getScript().getOnDialogEndListener().onDialogEnd(this);
