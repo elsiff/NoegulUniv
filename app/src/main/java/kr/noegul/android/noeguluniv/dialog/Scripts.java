@@ -127,7 +127,13 @@ public class Scripts {
 
         scriptMap.put(FAIL_GRADUATE_EXAM, new Script.Builder()
                 .putSpeech("뇌굴교수", "하하하")
-                .putSpeech("뇌굴교수", "쉽지 않지?")
+                .putSpeech("뇌굴교수", "축하해. 미달 성적이야")
+                .putSpeech("뇌굴교수", "ㅋㅋㅋㅋ~")
+                .putSpeech("뇌굴교수", "그래도 조금만 노력하면 될 성적이구만")
+                .putSpeech("뇌굴교수", "물론 긴장 풀진 말고.\n" +
+                        "학교를 몇 십년 동안 다니고 있는 학생들이 꽤 많다고")
+                .putSpeech("뇌굴교수", "자네도 그리 되기 싫으면 열심히 재수강하도록 해")
+                .putSpeech("뇌굴교수", "수고")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
                     public void onDialogEnd(Activity activity) {
@@ -137,7 +143,14 @@ public class Scripts {
                 .build());
 
         scriptMap.put(PASS_GRADUATE_EXAM, new Script.Builder()
-                .putSpeech("뇌굴교수", "졸업 시험 성공 스크립트입니다.")
+                .putSpeech("뇌굴교수", "뭐...")
+                .putSpeech("뇌굴교수", "봐줄만한 성적이구만")
+                .putSpeech("뇌굴교수", "옛다 졸업장")
+                .putSpeech("뇌굴교수", "짧은 시간이었지만 이렇게 보내게 되니 눈물이 또 나려고 하네")
+                .putSpeech("뇌굴교수", "롬곡 롬곡...")
+                .putSpeech("뇌굴교수", "껄-껄")
+                .putSpeech("뇌굴교수", "뭐. 이제 가봐")
+                .putSpeech("", "플레이 해주셔서 감사합니다!")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
                     public void onDialogEnd(Activity activity) {
