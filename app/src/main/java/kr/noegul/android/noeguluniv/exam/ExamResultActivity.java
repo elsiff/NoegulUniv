@@ -48,7 +48,7 @@ public class ExamResultActivity extends AppCompatActivity {
         rememberCardsGradeText.setText(" " + ScoreLabel.of(rememberCardsScore).getText());
 
         TextView graduateResultText = findViewById(R.id.graduate_result_text);
-        graduateResultText.setText("평균 평점: " + gpa);
+        graduateResultText.setText("평균 평점: " + gpa +" (" + ScoreLabel.of(gpa).getText() + ")");
 
         Button confirmButton = findViewById(R.id.confirm_button);
         PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
