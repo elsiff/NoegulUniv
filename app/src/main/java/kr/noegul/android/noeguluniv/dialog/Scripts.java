@@ -80,7 +80,7 @@ public class Scripts {
                 .build());
 
         scriptMap.put(START_COMPARE_COINS, new Script.Builder()
-                .putSpeech("뇌굴교수", "동전 비교는 두 선택지 중 더 큰 금액을 갖는 쪽을 택하는 수업이겠어요.")
+                .putSpeech("뇌굴교수", "이번 '동전 비교'는 두 선택지 중 더 큰 금액을 갖는 쪽을 택하는 수업이겠어요.")
                 .putSpeech("뇌굴교수", "제한시간은 1분.\n결'코 인'기있는 과목은 아니지만 힘내들. 껄-껄")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
@@ -92,7 +92,7 @@ public class Scripts {
                 .build());
 
         scriptMap.put(START_MATCH_THE_PICTURE, new Script.Builder()
-                .putSpeech("뇌굴교수", "같은 그림 찾기는 여러 개의 과일 그림 중 같은 거 두 개 골라내는 수업이에요.")
+                .putSpeech("뇌굴교수", "이번 '같은 그림 찾기'는 여러 개의 과일 그림 중 같은 거 두 개 골라내는 수업이에요.")
                 .putSpeech("뇌굴교수", "제한시간은 1분.\n꽤나 헷갈릴 '수 박'에 없을 껄? 껄-껄")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
@@ -104,7 +104,7 @@ public class Scripts {
                 .build());
 
         scriptMap.put(START_COUNT_BLOCKS, new Script.Builder()
-                .putSpeech("뇌굴교수", "블록 세기 정도는 알지? 나이가 몇인데. 블록이 몇 갠지 세면 돼.")
+                .putSpeech("뇌굴교수", "이번 수업은 '블록 세기'. 단순히 블록이 몇 갠지 세면 됩니다.")
                 .putSpeech("뇌굴교수", "제한시간은 1분.\n그나저나 자꾸 과일만 봤더니, 뭘 안 먹어도 배'블록'.. 껄-껄")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
@@ -116,7 +116,7 @@ public class Scripts {
                 .build());
 
         scriptMap.put(START_REMEMBER_CARDS, new Script.Builder()
-                .putSpeech("뇌굴교수", "이번 수업에선 주어진 과일 카드들을 기억해 맞추기만 하면 됩니다.")
+                .putSpeech("뇌굴교수", "이번 '카드 기억' 수업에선 주어진 과일 카드들을 기억해 맞추기만 하면 되겠어요.")
                 .putSpeech("뇌굴교수", "제한시간은 1분.\n이'참외' 기억력을 시험해봐요~ 껄-껄")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
