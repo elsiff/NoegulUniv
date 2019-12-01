@@ -29,10 +29,13 @@ public class CourseResultActivity extends AppCompatActivity {
         this.score = intent.getDoubleExtra("result", 0);
         Course course = Course.valueOf(intent.getStringExtra("course"));
 
-        PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
-        if (playerData.getResult(course) == CourseResult.NON_PASS &&
-                score >= ScoreLabel.C.getMinScore()) {
-            playerData.setResult(course, CourseResult.PASS);
+        NeogulUnivApp game = NeogulUnivApp.getInstance();
+        if (!game.hasOngoingExam()) {
+            PlayerData playerData = game.getPlayerData();
+            if (playerData.getResult(course) == CourseResult.NON_PASS &&
+                    score >= ScoreLabel.C.getMinScore()) {
+                playerData.setResult(course, CourseResult.PASS);
+            }
         }
 
         TextView resultText = findViewById(R.id.result_text);
