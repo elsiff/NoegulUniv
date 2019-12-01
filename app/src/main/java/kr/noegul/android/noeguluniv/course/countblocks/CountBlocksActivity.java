@@ -91,21 +91,21 @@ public class CountBlocksActivity extends AppCompatActivity {
         intent.putExtra("num-failed", game.getNumFailed());
 
         ScoreLabel result;
-        if (game.getNumSolved() >= 30 && game.getNumFailed() <= 1)
+        if (game.getNumSolved() >= 25 && game.getNumFailed() <= 1)
             result = ScoreLabel.A_PLUS;
-        else if (game.getNumSolved() >= 26 && game.getNumFailed() <= 2)
+        else if (game.getNumSolved() >= 21 && game.getNumFailed() <= 2)
             result = ScoreLabel.A;
-        else if (game.getNumSolved() >= 22 && game.getNumFailed() <= 4)
+        else if (game.getNumSolved() >= 16 && game.getNumFailed() <= 4)
             result = ScoreLabel.B_PLUS;
-        else if (game.getNumSolved() >= 19 && game.getNumFailed() <= 5)
+        else if (game.getNumSolved() >= 13 && game.getNumFailed() <= 5)
             result = ScoreLabel.B;
-        else if (game.getNumSolved() >= 17 && game.getNumFailed() <= 7)
+        else if (game.getNumSolved() >= 11 && game.getNumFailed() <= 7)
             result = ScoreLabel.C_PLUS;
-        else if (game.getNumSolved() >= 15 && game.getNumFailed() <= 10)
+        else if (game.getNumSolved() >= 9 && game.getNumFailed() <= 10)
             result = ScoreLabel.C;
-        else if (game.getNumSolved() >= 10)
-            result = ScoreLabel.D_PLUS;
         else if (game.getNumSolved() >= 7)
+            result = ScoreLabel.D_PLUS;
+        else if (game.getNumSolved() >= 5)
             result = ScoreLabel.D;
         else
             result = ScoreLabel.F;
