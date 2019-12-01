@@ -16,13 +16,14 @@ import kr.noegul.android.noeguluniv.player.PlayerData;
 
 public class Scripts {
     public static final int TUTORIAL = 0;
-    public static final int START_COMPARE_COINS = 1;
-    public static final int START_MATCH_THE_PICTURE = 2;
-    public static final int START_COUNT_BLOCKS = 3;
-    public static final int START_REMEMBER_CARDS = 4;
-    public static final int START_GRADUATE_EXAM = 5;
-    public static final int FAIL_GRADUATE_EXAM = 6;
-    public static final int PASS_GRADUATE_EXAM = 7;
+    public static final int FINISH_TUTORIAL = 1;
+    public static final int START_COMPARE_COINS = 2;
+    public static final int START_MATCH_THE_PICTURE = 3;
+    public static final int START_COUNT_BLOCKS = 4;
+    public static final int START_REMEMBER_CARDS = 5;
+    public static final int START_GRADUATE_EXAM = 6;
+    public static final int FAIL_GRADUATE_EXAM = 7;
+    public static final int PASS_GRADUATE_EXAM = 8;
     private static final Map<Integer, Script> scriptMap = new HashMap<>();
 
     private Scripts() {
@@ -43,6 +44,32 @@ public class Scripts {
                 .putSpeech("뇌굴교수", "그럼 시험을 시작하겠습니다\n" +
                         "제한시간은 강의 당 1분이고 조기 퇴실은 없습니다")
                 .putSpeech("뇌굴교수", "성적에는 안 들어가지만 열심히 풀도록 하세요")
+                .setOnDialogEndListener(new OnDialogEndListener() {
+                    @Override
+                    public void onDialogEnd(Activity activity) {
+                        NeogulUnivApp game = NeogulUnivApp.getInstance();
+                        game.startGraduateExam();
+
+                        Intent intent = new Intent(activity, DialogActivity.class);
+
+                        int scriptNum = getCourseScriptNum(game.getOngoingExam().getCurrentCourse());
+                        intent.putExtra("script-num", scriptNum);
+                        activity.startActivity(intent);
+                    }
+                })
+                .build());
+
+        scriptMap.put(FINISH_TUTORIAL, new Script.Builder()
+                .putSpeech("뇌굴교수", "뭐 대충 어땠나요들")
+                .putSpeech("뇌굴교수", "어려웠다면 정상입니다")
+                .putSpeech("뇌굴교수", "방금 본 시험이 여러분들이 앞으로 공부하게 될 과목들이에요")
+                .putSpeech("뇌굴교수", "이제 각 강의를 C+ 이상 성적으로 마치는게 여러분의 목표입니다")
+                .putSpeech("뇌굴교수", "그 다음은 마지막 관문인 졸업 시험이 남아있지요")
+                .putSpeech("뇌굴교수", "입학 시험과 똑같은 형식인데, B+ 이상만 나오면 졸업입니다")
+                .putSpeech("뇌굴교수", "물론 쉽진 않겠지만.")
+                .putSpeech("뇌굴교수", "잘못하면 학교에서 몇십 년 동안 썩을 수도 있을거에요")
+                .putSpeech("뇌굴교수", "껄-껄")
+                .putSpeech("뇌굴교수", "그럼 다들 행운을 빌어요. 이만")
                 .setOnDialogEndListener(new OnDialogEndListener() {
                     @Override
                     public void onDialogEnd(Activity activity) {
@@ -131,7 +158,7 @@ public class Scripts {
                 .putSpeech("뇌굴교수", "ㅋㅋㅋㅋ~")
                 .putSpeech("뇌굴교수", "그래도 조금만 노력하면 될 성적이구만")
                 .putSpeech("뇌굴교수", "물론 긴장 풀진 말고.\n" +
-                        "학교를 몇 십년 동안 다니고 있는 학생들이 꽤 많다고")
+                        "학교를 몇십 년 동안 다니고 있는 학생들이 꽤 많다고")
                 .putSpeech("뇌굴교수", "자네도 그리 되기 싫으면 열심히 재수강하도록 해")
                 .putSpeech("뇌굴교수", "수고")
                 .setOnDialogEndListener(new OnDialogEndListener() {

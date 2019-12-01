@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import kr.noegul.android.noeguluniv.NeogulUnivApp;
 import kr.noegul.android.noeguluniv.R;
 import kr.noegul.android.noeguluniv.course.ScoreLabel;
 import kr.noegul.android.noeguluniv.dialog.DialogActivity;
 import kr.noegul.android.noeguluniv.dialog.Scripts;
+import kr.noegul.android.noeguluniv.player.PlayerData;
 
 public class ExamResultActivity extends AppCompatActivity {
     private boolean passed = false;
@@ -49,17 +51,27 @@ public class ExamResultActivity extends AppCompatActivity {
         graduateResultText.setText("평균 평점: " + gpa);
 
         Button confirmButton = findViewById(R.id.confirm_button);
-        if (passed) {
-            confirmButton.setText("졸업하기");
+        PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
+        if (!playerData.hasPlayedTutorial()) {
+            confirmButton.setText("확인");
         } else {
-            confirmButton.setText("재수강하기");
+            if (passed) {
+                confirmButton.setText("졸업하기");
+            } else {
+                confirmButton.setText("재수강하기");
+            }
         }
     }
 
     public void onClickConfirmButton(View view) {
         Intent intent = new Intent(this, DialogActivity.class);
+        PlayerData playerData = NeogulUnivApp.getInstance().getPlayerData();
 
-        int scriptNum = (passed ? Scripts.PASS_GRADUATE_EXAM : Scripts.FAIL_GRADUATE_EXAM);
+        int scriptNum;
+        if (!playerData.hasPlayedTutorial())
+            scriptNum = Scripts.FINISH_TUTORIAL;
+        else
+            scriptNum = (passed ? Scripts.PASS_GRADUATE_EXAM : Scripts.FAIL_GRADUATE_EXAM);
         intent.putExtra("script-num", scriptNum);
 
         startActivity(intent);
