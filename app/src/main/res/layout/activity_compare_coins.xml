@@ -33,7 +33,7 @@
                 <GridView
                     android:id="@+id/choice_a_grid"
                     android:layout_width="wrap_content"
-                    android:layout_height="300dp"
+                    android:layout_height="350dp"
                     android:gravity="center"
                     android:numColumns="auto_fit"
                     android:stretchMode="columnWidth" />
@@ -50,7 +50,7 @@
                 <GridView
                     android:id="@+id/choice_b_grid"
                     android:layout_width="wrap_content"
-                    android:layout_height="300dp"
+                    android:layout_height="350dp"
                     android:gravity="center"
                     android:numColumns="auto_fit"
                     android:stretchMode="columnWidth" />
